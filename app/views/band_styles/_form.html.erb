@@ -1,0 +1,25 @@
+<%= form_for(@band_style) do |f| %>
+  <% if @band_style.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@band_style.errors.count, "error") %> prohibited this band_style from being saved:</h2>
+
+      <ul>
+      <% @band_style.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :band_id %><br />
+    <%= f.number_field :band_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.number_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

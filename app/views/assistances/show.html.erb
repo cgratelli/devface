@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @assistance.user_id %>
+</p>
+
+<p>
+  <b>Concert:</b>
+  <%= @assistance.concert_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_assistance_path(@assistance) %> |
+<%= link_to 'Back', assistances_path %>
