@@ -3,6 +3,7 @@ class BandsController < ApplicationController
   # GET /bands.json
   def index
     @bands = Band.all
+    @isbanda = 'active'
 
     respond_to do |format|
       format.html # index.html.erb
