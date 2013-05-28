@@ -1,3 +1,45 @@
+<style type="text/css">
+  #map-canvas { height: 300px; width: 400px }
+</style>
+
+  <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSGs-Qcw56mn57jkUNw-CbNbgSTKMcoyQ&sensor=false">
+  </script>
+ <script type="text/javascript">
+	
+	var infowindow;
+	var marker;
+     function initialize() {
+      var latlng = new google.maps.LatLng(-12.1041621,-76.9630458);
+      var options = {
+        zoom: 17,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById("map-canvas"), options);
+    
+	   google.maps.event.addListener(map, "click", function(event) {
+        marker = new google.maps.Marker({
+          position: event.latLng,
+          map: map
+        });
+		 google.maps.event.addListener(marker, "click", function() {
+          readmap(marker);
+        });
+       
+    });
+    }
+      google.maps.event.addDomListener(window, 'load', initialize);
+	  
+	  function readmap(marker)
+	  {
+		var latlng = marker.getPosition();
+		var lat=latlng.lat();
+		var lng=latlng.lng();
+		$('#local_lat').val(lat);
+		$('#local_lang').val(lng);
+	  }
+    </script>
 <%= form_for(@local) do |f| %>
   <% if @local.errors.any? %>
     <div id="error_explanation">
@@ -24,9 +66,16 @@
     <%= f.text_field :distrit %>
   </div>
   <div class="field">
-    <%= f.label :address_google_maps %><br />
-    <%= f.text_field :address_google_maps %>
+    <%= f.label :latitud %><br />
+    <%= f.text_field :lat ,:readonly => true%>
   </div>
+  <div class="field">
+    <%= f.label :longitud %><br />
+    <%= f.text_field :lang ,:readonly => true%>
+  </div>
+   <div id="map-canvas"></div>
+   
+   
   <div class="field">
     <%= f.label :first_phone %><br />
     <%= f.text_field :first_phone %>
