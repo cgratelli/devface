@@ -1,3 +1,46 @@
+<style type="text/css">
+  #map-canvas { height: 300px; width: 400px }
+</style>
+
+  <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSGs-Qcw56mn57jkUNw-CbNbgSTKMcoyQ&sensor=false">
+  </script>
+ <script type="text/javascript">
+	
+	var infowindow;
+	var marker;
+     function initialize() {
+      var latlng = new google.maps.LatLng(<%= @local.lat %>,<%= @local.lang %>);
+      var options = {
+        zoom: 17,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById("map-canvas"), options);
+    
+	   google.maps.event.addListener(map, "click", function(event) {
+        marker = new google.maps.Marker({
+          position: event.latLng,
+          map: map
+        });
+		 google.maps.event.addListener(marker, "click", function() {
+          readmap(marker);
+        });
+       
+    });
+    }
+      google.maps.event.addDomListener(window, 'load', initialize);
+	  
+	  function readmap(marker)
+	  {
+		var latlng = marker.getPosition();
+		var lat=latlng.lat();
+		var lng=latlng.lng();
+		$('#local_lat').val(lat);
+		$('#local_lang').val(lng);
+	  }
+    </script>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -19,6 +62,8 @@
   <b>First phone:</b>
   <%= @local.first_phone %>
 </p>
+
+<div id="map-canvas"></div>
 
 
 <%= link_to 'Edit', edit_local_path(@local) %> |
