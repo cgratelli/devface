@@ -25,11 +25,11 @@
   </div>
   <div class="field">
     <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
+    <%= f.select(:gender, options_for_select({"Femenino" => "F", "Masculino" => "M"}, @user.gender), :prompt => "Select") %>
   </div>
   <div class="field">
     <%= f.label :document_type %><br />
-    <%= f.text_field :document_type %>
+    <%= f.select(:document_type, options_for_select({"DNI" => "DNI", "Nro de Extranjeria" => "NE"}, @user.document_type), :prompt => "Select") %>
   </div>
   <div class="field">
     <%= f.label :document_number %><br />
