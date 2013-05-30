@@ -37,10 +37,22 @@
 						</li>
 						<li><a href="#">Link</a></li>
 					</ul>
-					<ul class="nav pull-right">
+					<ul class="nav pull-right">						
+						<% if current_user %>
 						<li>
-							<a href="">Ingresar</a>
+							<a href="">Bienvenido: <strong><%= current_user.name %></strong>!</a>
 						</li>
+						<li>
+							<%= link_to "Sign out", signout_path, id: "sign_out" %>
+						</li>								
+						<% else %>
+						<li>
+							<a href="">Ingresar</a>							
+						</li>
+						<li>
+							<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+						</li>
+						<% end %>						
 					</ul>
 				</div>
 
