@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= simple_form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -12,24 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.input :name %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+    <%= f.input :last_name %>
   </div>
   <div class="field">
-    <%= f.label :maternal_name %><br />
-    <%= f.text_field :maternal_name %>
+    <%= f.input :maternal_name %>
   </div>
   <div class="field">
     <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
+    <%= f.select(:gender, options_for_select({"Femenino" => "F", "Masculino" => "M"}, @user.gender), :prompt => "Select") %>
   </div>
   <div class="field">
     <%= f.label :document_type %><br />
-    <%= f.text_field :document_type %>
+    <%= f.select(:document_type, options_for_select({"DNI" => "DNI", "Nro de Extranjeria" => "NE"}, @user.document_type), :prompt => "Select") %>
   </div>
   <div class="field">
     <%= f.label :document_number %><br />
@@ -37,11 +34,11 @@
   </div>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.email_field :email, placeholder: 'user@domain.com' %>
   </div>
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.text_field :password %>
+    <%= f.password_field :password%>
   </div>
   <div class="actions">
     <%= f.submit %>
