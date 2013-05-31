@@ -1,0 +1,5 @@
+<ul class="breadcrumb">
+	<li><a href="#" class="active"><%= @band.name %></a> <span class="divider">/</span></li>
+	<li><%= link_to 'Editar', edit_band_path(@band) %> <span class="divider">/</span></li>
+	<li><%= link_to 'Añadir Miebros', "band_members/new/#{@band.id}" %></li>
+</ul>

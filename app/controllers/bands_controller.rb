@@ -25,6 +25,13 @@ class BandsController < ApplicationController
   # GET /bands/new
   # GET /bands/new.json
   def new
+
+    @validate = Band.where(:user_id => current_user.id).count()
+
+    if @validate > 0 
+      redirect_to :action => 'control' and return
+    end
+
     @band = Band.new
 
     respond_to do |format|
@@ -79,6 +86,15 @@ class BandsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to bands_url }
       format.json { head :no_content }
+    end
+  end
+
+  def control
+    @band = Band.where(:user_id => current_user.id).first
+
+    respond_to do |format|
+      format.html 
+      format.json
     end
   end
 end

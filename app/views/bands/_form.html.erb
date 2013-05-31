@@ -12,10 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.label 'Nombre de la Banda' %>
     <%= f.text_field :name %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'btn btn-primary' %>
   </div>
 <% end %>

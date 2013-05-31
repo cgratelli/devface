@@ -1,10 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <b>Name:</b>
-  <%= @band.name %>
+  <span class="label label-success">Felicitationes</span> Tu banda <b><%= @band.name %></b> fue creada!
 </p>
 
+<%= link_to 'Edit', edit_band_path(@band), :class => 'btn' %> 
 
-<%= link_to 'Edit', edit_band_path(@band) %> |
-<%= link_to 'Back', bands_path %>
