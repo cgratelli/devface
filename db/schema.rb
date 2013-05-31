@@ -63,10 +63,11 @@ ActiveRecord::Schema.define(:version => 20130530212133) do
     t.string   "name"
     t.string   "address"
     t.string   "distrit"
-    t.string   "address_google_maps"
+    t.string   "lat"
     t.string   "first_phone"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "lang"
   end
 
   create_table "user_rols", :force => true do |t|
