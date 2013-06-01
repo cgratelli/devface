@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130531222735) do
+ActiveRecord::Schema.define(:version => 20130601162405) do
 
   create_table "assistances", :force => true do |t|
     t.integer  "user_id"
@@ -64,10 +64,11 @@ ActiveRecord::Schema.define(:version => 20130531222735) do
     t.string   "name"
     t.string   "address"
     t.string   "distrit"
-    t.string   "lat"
+    t.string   "address_google_maps"
     t.string   "first_phone"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "lat"
     t.string   "lang"
   end
 
