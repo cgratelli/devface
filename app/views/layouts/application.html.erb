@@ -47,6 +47,20 @@
 								</li>
 							</ul>
 						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								Locales
+								<b class="caret"></b>
+							</a>
+							<ul class="dropdown-menu">
+								<li class="<%= @islocal ? @islocal : '' %>">
+									<%= link_to 'Agregar Locales', new_local_path, :tabindex => "-1" %>
+								</li>
+								<li class="<%= @islistlocal ? @islistlocal : '' %>">
+									<%= link_to 'Mostrar Locales', locals_path, :tabindex => "-1" %>
+								</li>
+							</ul>
+						</li>
 						<% else %>
 						<li class="<%= @isbanda ? @isbanda : '' %>">
 							<%= link_to 'Bandas', bands_path %>
