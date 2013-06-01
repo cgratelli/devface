@@ -26,11 +26,15 @@
   </div>
   <div class="field">
     <%= f.label :document_type %><br />
-    <%= f.select(:document_type, options_for_select({"DNI" => "DNI", "Nro de Extranjeria" => "NE"}, @user.document_type), :prompt => "Select") %>
+    <%= f.select(:document_type, options_for_select({"DNI" => "DNI", "TIU" => "TIU"}, @user.document_type), :prompt => "Select") %>
   </div>
   <div class="field">
     <%= f.label :document_number %><br />
     <%= f.text_field :document_number %>
+  </div>
+    <div class="field">
+    <%= f.label :confirm_document_number %><br />
+    <input type="text" id="confirm_document_number">
   </div>
   <div class="field">
     <%= f.label :email %><br />
@@ -39,6 +43,11 @@
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password%>
+  </div>
+      <div class="field">
+    <%= f.label :confirm_password %><br />
+    <%= f.password_field :password, :id => "repass" %>
+
   </div>
   <div class="actions">
     <%= f.submit %>
