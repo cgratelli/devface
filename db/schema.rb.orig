@@ -68,8 +68,11 @@ ActiveRecord::Schema.define(:version => 20130601162405) do
     t.string   "first_phone"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+<<<<<<< HEAD
+=======
     t.string   "lat"
     t.string   "lang"
+>>>>>>> 7c0f2be691eadefcb99b8a5675ebaf87a24407ee
   end
 
   create_table "user_rols", :force => true do |t|
